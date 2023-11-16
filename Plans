@@ -1,0 +1,13 @@
+Idea: Twin stick shooter/survivor like - simple prototype (test run)
+Time limit: Needs to be done by January 12th 2024.
+
+Plan: Pick apart a game to see what’s needed and figure out how to do it piece by piece 
+Player - movement (8 way), shooting, death, controller support?
+Enemies - rudimentary AI that allows them to chase player, damage dealt on contact or damage on attacks?, death
+XP gain and levels - how player levels and way to pick skills, xp needed for level 
+skill list - 5 to 10 skills that work for the prototype
+weapons and/or equipment - 5 to 10 items, some weapons and some items that work for the prototype
+Inventory - basic inventory or just item bar (few slots for items, weapons, potions)
+
+Animations needed for player and enemies - idle, walk/run, attack, hit, death
+Animation style - animated by hand or image bobbing left/right and using tweens and engine effects
