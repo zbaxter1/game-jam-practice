@@ -22,6 +22,7 @@ HSlider/icons/tick = null
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mngd"]
 bg_color = Color(0.717647, 0.721569, 0.72549, 1)
+[ext_resource type="PackedScene" uid="uid://7xbbbwrqe4qd" path="res://ui/dash_ability/dash_ability_ui.tscn" id="6_btw8a"]
 
 [node name="main" type="Node"]
 
@@ -116,3 +117,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3mngd")
 
 [node name="Enemy" parent="." instance=ExtResource("7_dhuqn")]
 position = Vector2(179, 106)
+[node name="EnemySpawnManager" parent="." instance=ExtResource("5_udeml")]
+time_between_spawns = 1
+
+[node name="DashAbilityUI" parent="." instance=ExtResource("6_btw8a")]

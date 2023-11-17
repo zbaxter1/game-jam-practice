@@ -176,4 +176,13 @@ position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_2fpqt")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.792935
+frame = 7
+frame_progress = 0.654718
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="DashCooldownTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DashCooldownTimer" to="." method="_on_dash_cooldown_timer_timeout"]
