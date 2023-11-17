@@ -17,7 +17,7 @@ var dash_current_charges: int = dash_max_charges
 @onready var dash_cooldown_timer = $DashCooldownTimer
 
 var isDashing: bool = false
-
+#test
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dash_cooldown_timer.wait_time = dash_charge_cooldown
