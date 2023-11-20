@@ -35,5 +35,5 @@ func stop_charging():
 
 
 func set_charge_label(charges: int):
-	print_debug("given charges = %d" % charges)
+#	print_debug("given charges = %d" % charges)
 	dash_charge_label.text = str(charges)
