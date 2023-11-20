@@ -87,5 +87,5 @@ func _on_dash_cooldown_timer_timeout():
 		dash_at_max_charges.emit()
 		dash_cooldown_timer.stop()
 		
-	print_debug("passing charges = %d" % dash_current_charges)
+#	print_debug("passing charges = %d" % dash_current_charges)
 	dash_set_charges.emit(dash_current_charges)
