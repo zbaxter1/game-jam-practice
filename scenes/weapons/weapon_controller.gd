@@ -4,7 +4,7 @@ extends Node
 
 var current_weapon: PackedScene = null
 var weapon_cooldown_time: float
-var weapon_scene_preload = preload("res://scenes/weapons/dagger_common.tscn")
+var weapon_scene_preload = preload("res://scenes/weapons/axe_common.tscn")
 
 func _ready():
 	set_weapon(weapon_scene_preload)

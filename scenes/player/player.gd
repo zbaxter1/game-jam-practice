@@ -82,7 +82,7 @@ func dash():
 		dash_cooldown_timer.start()
 		dash_used.emit()
 		
-	print_debug("dashing")
+#	print_debug("dashing")
 	isDashing = true
 	var movement_vector = get_movement_vector()
 	velocity = movement_vector * run_speed * dash_multiplier
