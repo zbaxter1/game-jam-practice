@@ -21,6 +21,9 @@ var attack_count = 0
 @onready var ranged_attack_spawn_position = %Ranged_Attack_Spawn_Position
 @onready var ranged_attack_cool_down = $Ranged_Attack_CoolDown
 @onready var ranged_attack_delay = $Ranged_Attack_Delay
+@onready var raycasts = %RayCastContainer.get_children()
+@onready var health_component = $HealthComponent
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +35,7 @@ func _ready():
 	area_2d.area_entered.connect(on_area_entered)
 	# make sure to start with full health
 	current_health = max_health
+	health_component.died.connect(on_died)
 
 # Signal handler for when an animation finishes
 func _on_AnimatedSprite2D_animation_finished():
@@ -145,3 +149,8 @@ func take_damage(damage_amount):
 		velocity = Vector2.ZERO
 	else:
 		die()
+	
+
+
+func on_died():
+	queue_free()

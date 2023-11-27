@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi821uko72y7u"]
+[gd_scene load_steps=9 format=3 uid="uid://bi821uko72y7u"]
 
 [ext_resource type="Script" path="res://scenes/weapons/weapon_scene.gd" id="1_5qhna"]
-[ext_resource type="Resource" uid="uid://b065ak51h4172" path="res://resources/weapons/swords/axe_common.tres" id="2_loswv"]
-[ext_resource type="Texture2D" uid="uid://58x3hyh3753h" path="res://assets/art/weapons/axe_common.png" id="3_w83ws"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwyvf"]
-size = Vector2(44, 22)
+[ext_resource type="Resource" uid="uid://b065ak51h4172" path="res://resources/weapons/weapon_resources/axe.tres" id="2_e67gg"]
+[ext_resource type="Texture2D" uid="uid://diccs6qt2j6oo" path="res://assets/art/weapons/axe_one_sided_double_edge.png" id="3_4vdsv"]
+[ext_resource type="PackedScene" uid="uid://dlplsmjidvq0l" path="res://scenes/components/hitbox_component.tscn" id="4_jkh67"]
 
 [sub_resource type="Animation" id="Animation_3wuqj"]
 length = 0.001
@@ -31,12 +29,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [-1.57079]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -60,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.35, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-12, 0), Vector2(0, -6), Vector2(10, 0)]
+"values": [Vector2(-5, 0), Vector2(0, -6), Vector2(5, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -72,12 +70,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.35, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-1.0472, 0.0, 1.0472]
+"values": [-3.14159, -1.57079, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -107,25 +105,29 @@ _data = {
 "attack": SubResource("Animation_smdua")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwyvf"]
+size = Vector2(44, 22)
+
 [node name="AxeCommon" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_5qhna")
-weapon_resource = ExtResource("2_loswv")
-
-[node name="Area2D" type="Area2D" parent="."]
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_jwyvf")
-disabled = true
+weapon_resource = ExtResource("2_e67gg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_w83ws")
-offset = Vector2(0, -4)
-flip_h = true
+rotation = -1.57079
+texture = ExtResource("3_4vdsv")
+offset = Vector2(4, 0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_pauos")
 }
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_jkh67")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_jwyvf")
+disabled = true
