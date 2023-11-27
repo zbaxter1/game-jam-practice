@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6x038dr1a5q7"]
+
+[ext_resource type="Texture2D" uid="uid://dneymibx7mfav" path="res://abilities/spells/swirl/tile000.png" id="1_cse6x"]
+[ext_resource type="Texture2D" uid="uid://cdndw41gveh2l" path="res://abilities/spells/swirl/tile001.png" id="2_8e7ki"]
+[ext_resource type="Texture2D" uid="uid://cxy476687lp75" path="res://abilities/spells/swirl/tile002.png" id="3_tb6yw"]
+[ext_resource type="Texture2D" uid="uid://do7wd326rveqq" path="res://abilities/spells/swirl/tile003.png" id="4_08yk1"]
+[ext_resource type="Texture2D" uid="uid://buyhof7crtam2" path="res://abilities/spells/swirl/tile004.png" id="5_g7dm1"]
+[ext_resource type="Texture2D" uid="uid://dfd6hj0fn6gag" path="res://abilities/spells/swirl/tile005.png" id="6_wvik4"]
+
+[sub_resource type="Animation" id="Animation_tj8pg"]
+resource_name = "swirl"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_cse6x"), ExtResource("2_8e7ki"), ExtResource("3_tb6yw"), ExtResource("4_08yk1"), ExtResource("5_g7dm1"), ExtResource("6_wvik4")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_yqel0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_cse6x")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sfj0j"]
+_data = {
+"RESET": SubResource("Animation_yqel0"),
+"swirl": SubResource("Animation_tj8pg")
+}
+
+[node name="Effect" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "swirl"
+libraries = {
+"": SubResource("AnimationLibrary_sfj0j")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cse6x")

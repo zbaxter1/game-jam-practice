@@ -1,0 +1,100 @@
+[gd_scene load_steps=20 format=3 uid="uid://cuwgugpe1wq1w"]
+
+[ext_resource type="Texture2D" uid="uid://8dbdgtkss2po" path="res://abilities/spells/cloud/tile006.png" id="1_ilgaq"]
+[ext_resource type="Texture2D" uid="uid://cqr8euds4borr" path="res://abilities/spells/cloud/tile007.png" id="2_4u4bk"]
+[ext_resource type="Texture2D" uid="uid://ljjd6o52unjq" path="res://abilities/spells/cloud/tile008.png" id="3_kgahb"]
+[ext_resource type="Texture2D" uid="uid://d4ngollermc7b" path="res://abilities/spells/cloud/tile009.png" id="4_sl7rd"]
+[ext_resource type="Texture2D" uid="uid://cihvcm4cl0fnv" path="res://abilities/spells/cloud/tile010.png" id="5_0qgmw"]
+[ext_resource type="Texture2D" uid="uid://byajydnm0ip7b" path="res://abilities/spells/cloud/tile011.png" id="6_qyf3t"]
+[ext_resource type="Texture2D" uid="uid://dg7akbibex5wv" path="res://abilities/spells/fire_ball/tile012.png" id="7_qh01m"]
+[ext_resource type="Texture2D" uid="uid://bxed3uownatx7" path="res://abilities/spells/fire_ball/tile013.png" id="8_oyhf6"]
+[ext_resource type="Texture2D" uid="uid://ijn72e7qpjb2" path="res://abilities/spells/fire_ball/tile014.png" id="9_8cajd"]
+[ext_resource type="Texture2D" uid="uid://l5vu6l33luc6" path="res://abilities/spells/fire_ball/tile015.png" id="10_676cu"]
+[ext_resource type="Texture2D" uid="uid://chx4ymh3a4yfx" path="res://abilities/spells/fire_ball/tile016.png" id="11_srw0d"]
+[ext_resource type="Texture2D" uid="uid://kg6wy4ahwdgb" path="res://abilities/spells/fire_ball/tile017.png" id="12_m3xe8"]
+[ext_resource type="Texture2D" uid="uid://dneymibx7mfav" path="res://abilities/spells/swirl/tile000.png" id="13_qv433"]
+[ext_resource type="Texture2D" uid="uid://cdndw41gveh2l" path="res://abilities/spells/swirl/tile001.png" id="14_y2s1v"]
+[ext_resource type="Texture2D" uid="uid://cxy476687lp75" path="res://abilities/spells/swirl/tile002.png" id="15_p0pbc"]
+[ext_resource type="Texture2D" uid="uid://do7wd326rveqq" path="res://abilities/spells/swirl/tile003.png" id="16_w6h4i"]
+[ext_resource type="Texture2D" uid="uid://buyhof7crtam2" path="res://abilities/spells/swirl/tile004.png" id="17_3c8uh"]
+[ext_resource type="Texture2D" uid="uid://dfd6hj0fn6gag" path="res://abilities/spells/swirl/tile005.png" id="18_wns4o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fw8vj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ilgaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4u4bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kgahb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sl7rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0qgmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qyf3t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qh01m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_oyhf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8cajd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_676cu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_srw0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_m3xe8")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_qv433")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_y2s1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_p0pbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_w6h4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_3c8uh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wns4o")
+}],
+"loop": false,
+"name": &"new_animation_1",
+"speed": 20.0
+}]
+
+[node name="Spell" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fw8vj")
+animation = &"new_animation_1"
+frame = 5
+frame_progress = 1.0

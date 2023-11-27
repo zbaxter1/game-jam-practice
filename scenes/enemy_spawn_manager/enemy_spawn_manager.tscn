@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjefvqiq1udiw"]
+
+[ext_resource type="Script" path="res://scenes/enemy_spawn_manager/enemy_spawn_manager.gd" id="1_pcggl"]
+[ext_resource type="PackedScene" uid="uid://gavevpxyamou" path="res://scenes/enemy/enemy.tscn" id="2_6g3dk"]
+
+[node name="EnemySpawnManager" type="Node2D"]
+script = ExtResource("1_pcggl")
+enemy_to_spawn = ExtResource("2_6g3dk")
