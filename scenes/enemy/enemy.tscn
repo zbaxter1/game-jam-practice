@@ -1,8 +1,10 @@
-[gd_scene load_steps=90 format=3 uid="uid://gavevpxyamou"]
+[gd_scene load_steps=92 format=3 uid="uid://gavevpxyamou"]
 
 [ext_resource type="Texture2D" uid="uid://bodnnpc6tauim" path="res://scenes/enemy/attack_close/tile036.png" id="1_p756p"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_x73qb"]
+[ext_resource type="PackedScene" uid="uid://cryqtbpdgs1cq" path="res://scenes/components/health_component.tscn" id="2_b64ne"]
 [ext_resource type="Texture2D" uid="uid://odlwqfyhvx" path="res://scenes/enemy/attack_close/tile037.png" id="2_el81b"]
+[ext_resource type="PackedScene" uid="uid://d3smxnpy6ppkv" path="res://scenes/components/hurtbox_component.tscn" id="3_1bxcv"]
 [ext_resource type="Texture2D" uid="uid://crcwafc8x61a1" path="res://scenes/enemy/attack_close/tile038.png" id="3_61sg8"]
 [ext_resource type="Texture2D" uid="uid://c0dypwyby5uyx" path="res://scenes/enemy/attack_close/tile039.png" id="4_4crvp"]
 [ext_resource type="Texture2D" uid="uid://5rfkvcw2jhxh" path="res://scenes/enemy/attack_close/tile040.png" id="5_ecaay"]
@@ -86,6 +88,9 @@
 [ext_resource type="Texture2D" uid="uid://63pk8b8jbng5" path="res://scenes/enemy/walk/tile023.png" id="69_umcsn"]
 [ext_resource type="Texture2D" uid="uid://dev2yvanf2c7y" path="res://scenes/enemy/walk/tile024.png" id="70_0dw8t"]
 [ext_resource type="Texture2D" uid="uid://d4d40h8tuv5q5" path="res://scenes/enemy/walk/tile025.png" id="71_52ejw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5623h"]
+radius = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vs4qs"]
 animations = [{
@@ -382,13 +387,22 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lt06s"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yxbsi"]
-radius = 15.0
-
 [node name="Enemy" type="CharacterBody2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 8
+collision_mask = 9
 script = ExtResource("1_x73qb")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_b64ne")]
+max_hp = 5
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_1bxcv")]
+collision_layer = 8
+collision_mask = 0
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_5623h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
@@ -402,13 +416,9 @@ frame_progress = 0.362346
 position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_lt06s")
 
-[node name="Hit_Box" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -9)
-shape = SubResource("CircleShape2D_yxbsi")
-
 [node name="RayCastContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastContainer"]
 

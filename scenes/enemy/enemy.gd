@@ -8,6 +8,7 @@ var player
 var can_move = false
 
 @onready var raycasts = %RayCastContainer.get_children()
+@onready var health_component = $HealthComponent
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +16,8 @@ func _ready():
 	animated_sprite_2d.play("spawn_drop")
 	animated_sprite_2d.connect("animation_finished", Callable(self, "_on_AnimatedSprite2D_animation_finished"))
 	get_player()
+	
+	health_component.died.connect(on_died)
 
 # Signal handler for when an animation finishes
 func _on_AnimatedSprite2D_animation_finished():
@@ -67,3 +70,7 @@ func avoid_other_enemies():
 func get_player():
 	player = get_tree().get_nodes_in_group("player")[0] as Node2D
 	
+
+
+func on_died():
+	queue_free()

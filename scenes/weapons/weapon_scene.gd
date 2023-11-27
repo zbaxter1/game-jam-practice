@@ -3,10 +3,14 @@ class_name WeaponScene
 
 @export var weapon_resource: WeaponResource
 
+# how far to spawn the weapon away from the player's weapon origin point
 var extension_range = 16
 
 
 func _ready():
+	if !weapon_resource:
+		print_debug("no weapon_resource connected")
+	
 	scale *= weapon_resource.weapon_size
 
 
@@ -38,3 +42,12 @@ func get_cooldown_time() -> float:
 		return -1
 		
 	return weapon_resource.weapon_cooldown_time
+
+
+func get_damage_stats() -> Dictionary:
+	var damage_stats = {
+		"damage": weapon_resource.weapon_damage,
+		"damage_element": weapon_resource.DamageElement,
+		"damage_type": weapon_resource.DamageType
+	}
+	return damage_stats

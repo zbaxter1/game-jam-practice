@@ -1,17 +1,19 @@
 extends Resource
 class_name WeaponResource
 
-enum WeaponRarity {COMMON, UNCOMMON, RARE, EPIC, LEGENDARY, MYTHIC}
-enum WeaponType {SWORD, KATANA, AXE, DAGGER, BOW, GUN}
+const WeaponEnums = preload("res://scenes/enums/WeaponEnums.gd")
+const DamageEnums = preload("res://scenes/enums/DamageEnums.gd")
 
 @export_group("Weapon Meta-Data")
 @export var weapon_id: int
-@export var weapon_type: WeaponType
-@export var rarity: WeaponRarity
+@export var weapon_type: WeaponEnums.WeaponType
+@export var rarity: WeaponEnums.WeaponRarity
 @export var weapon_texture: Texture
 
 @export_group("Weapon Stats")
 @export var weapon_damage: int
+@export var weapon_damage_element: DamageEnums.DamageElement = DamageEnums.DamageElement.PHYSICAL
+@export var weapon_damage_type: DamageEnums.DamageType = DamageEnums.DamageType.SLASH
 @export var weapon_cooldown_time: float
 @export var weapon_size: float
 @export var weapon_pierce: int = 1

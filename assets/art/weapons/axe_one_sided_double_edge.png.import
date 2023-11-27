@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://diccs6qt2j6oo"
-path="res://.godot/imported/axe_double_sided.png-fcf9d33f29fb2b0534f849368fa460df.ctex"
+path="res://.godot/imported/axe_one_sided_double_edge.png-a76b6b2614c29a549ea4cd9a5b390a7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/weapons/axe_double_sided.png"
-dest_files=["res://.godot/imported/axe_double_sided.png-fcf9d33f29fb2b0534f849368fa460df.ctex"]
+source_file="res://assets/art/weapons/axe_one_sided_double_edge.png"
+dest_files=["res://.godot/imported/axe_one_sided_double_edge.png-a76b6b2614c29a549ea4cd9a5b390a7b.ctex"]
 
 [params]
 

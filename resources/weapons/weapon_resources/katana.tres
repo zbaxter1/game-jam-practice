@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://cx4xsl2ht4u0s"]
 
 [ext_resource type="Script" path="res://resources/weapons/weapon_resource.gd" id="1_osc8p"]
-[ext_resource type="Texture2D" uid="uid://7q1bmlpsguvh" path="res://assets/art/weapons/katana_common.png" id="2_4gfec"]
+[ext_resource type="Texture2D" uid="uid://ms5xlqngd36b" path="res://assets/art/weapons/sword_thin.png" id="2_u57hp"]
 
 [resource]
 script = ExtResource("1_osc8p")
 weapon_id = 2
 weapon_type = 1
 rarity = 0
-weapon_texture = ExtResource("2_4gfec")
-weapon_damage = 3
+weapon_texture = ExtResource("2_u57hp")
+weapon_damage = 4
+weapon_damage_element = 0
+weapon_damage_type = 0
 weapon_cooldown_time = 0.7
 weapon_size = 1.0
 weapon_pierce = 4
