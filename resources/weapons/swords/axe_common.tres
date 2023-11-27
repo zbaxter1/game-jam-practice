@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://b065ak51h4172"]
+
+[ext_resource type="Script" path="res://resources/weapons/weapon_resource.gd" id="1_njnq8"]
+[ext_resource type="Texture2D" uid="uid://58x3hyh3753h" path="res://assets/art/weapons/axe_common.png" id="2_a2moh"]
+
+[resource]
+script = ExtResource("1_njnq8")
+weapon_id = 3
+weapon_type = 2
+rarity = 0
+weapon_texture = ExtResource("2_a2moh")
+weapon_damage = 8
+weapon_cooldown_time = 2.0
+weapon_size = 1.7
+weapon_pierce = 2
+weapon_magazine_size = 0
+weapon_magazine_reload_speed = 0.0
+weapon_projectile_speed = 0.0
