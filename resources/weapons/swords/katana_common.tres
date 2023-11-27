@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://cx4xsl2ht4u0s"]
+
+[ext_resource type="Script" path="res://resources/weapons/weapon_resource.gd" id="1_osc8p"]
+[ext_resource type="Texture2D" uid="uid://7q1bmlpsguvh" path="res://assets/art/weapons/katana_common.png" id="2_4gfec"]
+
+[resource]
+script = ExtResource("1_osc8p")
+weapon_id = 2
+weapon_type = 1
+rarity = 0
+weapon_texture = ExtResource("2_4gfec")
+weapon_damage = 3
+weapon_cooldown_time = 0.7
+weapon_size = 1.0
+weapon_pierce = 4
+weapon_magazine_size = 0
+weapon_magazine_reload_speed = 0.0
+weapon_projectile_speed = 0.0

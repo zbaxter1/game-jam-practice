@@ -15,6 +15,7 @@ var dash_current_charges: int = dash_max_charges
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var dash_timer = $DashTimer
 @onready var dash_cooldown_timer = $DashCooldownTimer
+@onready var weapon_controller = $WeaponController
 
 var isDashing: bool = false
 #test
@@ -24,6 +25,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_pressed("attack"):
+		var mouse_position = get_global_mouse_position()
+		weapon_controller.use_weapon(self, mouse_position)
+	
 	if !isDashing:
 		var movement_vector = get_movement_vector()
 		var current_speed = run_speed
@@ -55,6 +60,15 @@ func update_animation(movement_vector, current_speed):
 func _input(event):
 	if Input.is_action_just_pressed("dash"):
 		dash()
+
+
+func get_weapon_origin() -> Vector2:
+	return $AnimatedSprite2D/WeaponOriginPoint.global_position
+
+
+func get_sprite() -> AnimatedSprite2D:
+	return animated_sprite_2d
+
 
 func dash():
 	if isDashing:
