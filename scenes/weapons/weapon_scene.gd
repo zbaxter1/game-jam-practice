@@ -47,7 +47,7 @@ func get_cooldown_time() -> float:
 func get_damage_stats() -> Dictionary:
 	var damage_stats = {
 		"damage": weapon_resource.weapon_damage,
-		"damage_element": weapon_resource.DamageElement,
-		"damage_type": weapon_resource.DamageType
+		"damage_element": weapon_resource.weapon_damage_element,
+		"damage_type": weapon_resource.weapon_damage_type
 	}
 	return damage_stats
