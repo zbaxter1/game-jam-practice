@@ -4,7 +4,7 @@ extends Node
 
 var current_weapon: PackedScene = null
 var weapon_cooldown_time: float
-var weapon_scene_preload = preload("res://scenes/weapons/dagger_common.tscn")
+var weapon_scene_preload = preload("res://scenes/weapons/axe_common.tscn")
 
 func _ready():
 	set_weapon(weapon_scene_preload)
@@ -27,7 +27,7 @@ func get_current_weapon() -> PackedScene:
 	return current_weapon
 
 
-func use_weapon(player: CharacterBody2D, mouse_position: Vector2):
+func use_weapon(player: CharacterBody2D):
 	if !current_weapon:
 		return
 	
@@ -37,5 +37,5 @@ func use_weapon(player: CharacterBody2D, mouse_position: Vector2):
 	var current_weapon_instance = current_weapon.instantiate()
 	var node_location = player.get_sprite()
 	node_location.add_child(current_weapon_instance)
-	current_weapon_instance.attack(player, mouse_position)
+	current_weapon_instance.attack(player)
 	weapon_cooldown_timer.start()
