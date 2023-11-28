@@ -18,10 +18,12 @@ var dash_current_charges: int = dash_max_charges
 @onready var weapon_controller = $WeaponController
 
 var isDashing: bool = false
-#test
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	dash_cooldown_timer.wait_time = dash_charge_cooldown
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,8 +46,10 @@ func get_movement_vector():
 	var y_movement = Input.get_action_strength("down") - Input.get_action_strength("up")
 	return Vector2(x_movement, y_movement)
 
+
 func attack():
 	pass
+
 
 func update_animation(movement_vector, current_speed):
 	if movement_vector != Vector2.ZERO:
