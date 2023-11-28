@@ -14,17 +14,26 @@ func _ready():
 	scale *= weapon_resource.weapon_size
 
 
-func attack(player: CharacterBody2D, mouse_position: Vector2):
-	if !weapon_resource:
-		return
-	
+func _process(delta):
+	var player = get_tree().get_first_node_in_group("player")
+	set_attack_transform(player)
+
+
+func set_attack_transform(player: CharacterBody2D):
 	# Getting weapon position and angle
 	var player_position = player.get_weapon_origin() as Vector2
-	var weapon_direction = player_position.direction_to(mouse_position)
+	var weapon_direction = player_position.direction_to(get_global_mouse_position())
 	var weapon_position = player_position + (weapon_direction * extension_range)
 	var weapon_angle = weapon_direction.angle()
 	global_position = weapon_position
 	rotation = weapon_angle + (PI/2)
+
+
+func attack(player: CharacterBody2D):
+	if !weapon_resource:
+		return
+	
+	set_attack_transform(player)
 	
 	# Getting weapon animation and setting the speed
 	var animation = $AnimationPlayer.get_animation("attack")
