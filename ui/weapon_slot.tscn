@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://1gdnvp87qhtf"]
+
+[ext_resource type="Script" path="res://ui/weapon_slot.gd" id="1_w83jp"]
+[ext_resource type="Texture2D" uid="uid://d4lkwt42rqcd2" path="res://assets/art/weapons/sword.png" id="2_8udvd"]
+
+[node name="WeaponSlot" type="PanelContainer"]
+custom_minimum_size = Vector2(42, 43)
+offset_right = 40.0
+offset_bottom = 41.0
+pivot_offset = Vector2(16, 16)
+script = ExtResource("1_w83jp")
+
+[node name="BorderRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[node name="FillRect" type="ColorRect" parent="BorderRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="BorderRect/FillRect"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ItemSprite" type="Sprite2D" parent="BorderRect/FillRect/MarginContainer"]
+unique_name_in_owner = true
+texture = ExtResource("2_8udvd")
+centered = false
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

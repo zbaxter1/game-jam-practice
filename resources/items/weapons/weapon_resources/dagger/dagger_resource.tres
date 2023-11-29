@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="WeaponResource" load_steps=3 format=3 uid="uid://bjgwy0ifloisv"]
 
-[ext_resource type="Script" path="res://resources/weapons/weapon_resource.gd" id="1_1c8ux"]
+[ext_resource type="Script" path="res://resources/items/weapons/weapon_resource.gd" id="1_1c8ux"]
 [ext_resource type="Texture2D" uid="uid://dwfgs4ilyelr4" path="res://assets/art/weapons/dagger.png" id="2_o6bxw"]
 
 [resource]
 script = ExtResource("1_1c8ux")
-weapon_id = 4
+weapon_id = "dagger"
 weapon_type = 3
-rarity = 0
-weapon_texture = ExtResource("2_o6bxw")
+weapon_name = ""
+weapon_description = ""
 weapon_damage = 1
 weapon_damage_element = 0
 weapon_damage_type = 1
@@ -18,3 +18,6 @@ weapon_pierce = 1
 weapon_magazine_size = 0
 weapon_magazine_reload_speed = 0.0
 weapon_projectile_speed = 0.0
+item_type = 0
+icon_texture = ExtResource("2_o6bxw")
+item_rarity = 0

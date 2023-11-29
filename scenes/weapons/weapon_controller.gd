@@ -2,40 +2,47 @@ extends Node
 
 @onready var weapon_cooldown_timer = $WeaponCooldownTimer
 
-var current_weapon: PackedScene = null
 var weapon_cooldown_time: float
-var weapon_scene_preload = preload("res://scenes/weapons/axe_common.tscn")
+var temp_item_resource: Item = preload("res://resources/items/weapons/weapon_resources/sword/sword_item.tres")
+
+var current_item: Item = null
+var current_weapon_resource: WeaponResource = null
+var current_weapon_controller: PackedScene = null
 
 func _ready():
-	set_weapon(weapon_scene_preload)
+	set_weapon(temp_item_resource)
+	GameEvents.item_selected.connect(set_weapon)
 
 
-func set_weapon(weapon_scene: PackedScene):
-	var weapon_scene_instance = weapon_scene.instantiate() as WeaponScene
-	if weapon_scene_instance is WeaponScene:
-		current_weapon = weapon_scene
-		
-	weapon_cooldown_time = weapon_scene_instance.get_cooldown_time()
+func set_weapon(weapon_item: Item):
+	current_item = weapon_item
+	current_weapon_resource = weapon_item.item_resource as WeaponResource
+	current_weapon_controller = weapon_item.item_controller
+	
+	weapon_cooldown_time = current_weapon_resource.weapon_cooldown_time
 	weapon_cooldown_timer.wait_time = weapon_cooldown_time
 
 
 func remove_weapon():
-	current_weapon = null
+	current_item = null
+	current_weapon_resource = null
+	current_weapon_controller = null
 
 
-func get_current_weapon() -> PackedScene:
-	return current_weapon
+func get_current_item() -> Item:
+	return current_item
 
 
-func use_weapon(player: CharacterBody2D):
-	if !current_weapon:
+func use_weapon():
+	if !current_item:
 		return
 	
 	if !weapon_cooldown_timer.is_stopped():
 		return
 	
-	var current_weapon_instance = current_weapon.instantiate()
+	var weapon_controller_instance = current_weapon_controller.instantiate()
+	var player = get_tree().get_first_node_in_group("player")
 	var node_location = player.get_sprite()
-	node_location.add_child(current_weapon_instance)
-	current_weapon_instance.attack(player)
+	node_location.add_child(weapon_controller_instance)
+	weapon_controller_instance.attack(current_weapon_resource)
 	weapon_cooldown_timer.start()

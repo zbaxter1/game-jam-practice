@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2h2dvhfxq17b"]
+[gd_scene load_steps=8 format=3 uid="uid://b2h2dvhfxq17b"]
 
 [ext_resource type="PackedScene" uid="uid://1rljgawdiaep" path="res://scenes/player/player.tscn" id="1_ja2t5"]
 [ext_resource type="TileSet" uid="uid://dym857fnu5a2k" path="res://resources/tile_set.tres" id="1_rhnol"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cngso0ff4cldj" path="res://scenes/game_camera/camera_2d.tscn" id="3_aarrx"]
 [ext_resource type="PackedScene" uid="uid://bjefvqiq1udiw" path="res://scenes/enemy_spawn_manager/enemy_spawn_manager.tscn" id="5_udeml"]
 [ext_resource type="PackedScene" uid="uid://7xbbbwrqe4qd" path="res://ui/dash_ability/dash_ability_ui.tscn" id="6_btw8a"]
+[ext_resource type="PackedScene" uid="uid://bjjgx6t6gvorr" path="res://ui/weapon_bar.tscn" id="7_nrhvs"]
 
 [node name="main" type="Node"]
 
@@ -33,3 +34,5 @@ position = Vector2(183, 130)
 time_between_spawns = 1
 
 [node name="DashAbilityUI" parent="." instance=ExtResource("6_btw8a")]
+
+[node name="WeaponBar" parent="." instance=ExtResource("7_nrhvs")]

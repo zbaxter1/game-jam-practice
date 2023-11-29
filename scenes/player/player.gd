@@ -26,7 +26,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("attack"):
-		weapon_controller.use_weapon(self)
+		weapon_controller.use_weapon()
 	
 	if !isDashing:
 		var movement_vector = get_movement_vector()

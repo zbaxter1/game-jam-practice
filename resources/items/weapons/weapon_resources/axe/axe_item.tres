@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dqknu6ge6507c"]
+
+[ext_resource type="Script" path="res://resources/items/item.gd" id="1_f88mg"]
+[ext_resource type="PackedScene" uid="uid://bi821uko72y7u" path="res://scenes/weapons/axe_controller.tscn" id="1_h5fx7"]
+[ext_resource type="Resource" uid="uid://b065ak51h4172" path="res://resources/items/weapons/weapon_resources/axe/axe_resource.tres" id="2_4bfvh"]
+
+[resource]
+script = ExtResource("1_f88mg")
+item_resource = ExtResource("2_4bfvh")
+item_controller = ExtResource("1_h5fx7")

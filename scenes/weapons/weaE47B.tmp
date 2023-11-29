@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://uurddiox0nec"]
+
+[ext_resource type="Script" path="res://scenes/weapons/weapon_controller.gd" id="1_ngm1g"]
+
+[node name="WeaponController" type="Node"]
+script = ExtResource("1_ngm1g")
+
+[node name="WeaponCooldownTimer" type="Timer" parent="."]
+one_shot = true
