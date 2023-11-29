@@ -25,7 +25,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_pressed("attack") && !GameEvents.mouse_over_ui:
 		weapon_controller.use_weapon()
 	
 	if !isDashing:

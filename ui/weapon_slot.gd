@@ -37,3 +37,11 @@ func _on_gui_input(event: InputEvent):
 			var item_id = current_item.item_resource.weapon_id
 			print_debug("item id = %s" % item_id)
 			selected.emit()
+
+
+func _on_mouse_entered():
+	GameEvents.mouse_entered_ui()
+
+
+func _on_mouse_exited():
+	GameEvents.mouse_exited_ui()

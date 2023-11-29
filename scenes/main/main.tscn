@@ -29,6 +29,7 @@ layer_0/tile_data = PackedInt32Array(196615, 0, 2, 262151, 0, 3, 327687, 0, 4, 1
 position = Vector2(183, 130)
 
 [node name="Camera2D" parent="." instance=ExtResource("3_aarrx")]
+position = Vector2(320, 180)
 
 [node name="EnemySpawnManager" parent="." instance=ExtResource("5_udeml")]
 time_between_spawns = 1
